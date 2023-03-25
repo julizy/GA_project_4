@@ -129,5 +129,6 @@ dmypy.json
 .pyre/
 
 .ipynb_checkpoints
+.DS_Store
 **/code/.ipynb_checkpoints
 **/.DS_Store
