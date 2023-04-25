@@ -5,7 +5,7 @@
 - [Problem Statement](#Problem-Statement) 
 - [Dataset](#Dataset)
 - [Executive Summary](#Executive-Summary)
-- [Conclusions and Recommendations](#Conclusions-and-Recommendations)  
+- [Conclusion and Recommendation](#Conclusion-and-Recommendation)  
 
 ## Background
 
@@ -13,7 +13,7 @@
 [Return to top](#Table-of-Contents)  
 
 ## Problem Statement
-The goal of this project is to predict the number of dengue cases in Singapore temporally and spatially in order to enable targeted intervention and better resource allocation. 
+The goal of this project is to predict the number of dengue cases in Singapore on a temporal and spatial level, to enable targeted intervention and better resource allocation. 
 
 [Return to top](#Table-of-Contents)  
 
@@ -22,7 +22,7 @@ We curated the dataset from:
 1. [Historical daily weather](http://www.weather.gov.sg/climate-historical-daily/): Daily weather data includes rainfall, temperature and wind speed in Singapore
 2. [Weekly dengue cases](https://data.gov.sg/dataset/weekly-number-of-dengue-and-dengue-haemorrhagic-fever-cases): Weekly number of dengue cases from 2014 to 2018 in Singapore
 3. [Google trends](https://trends.google.com/trends/explore?date=today%205-y&geo=SG&q=%2Fm%2F09wsg): Google search terms containing ‘dengue’ in Singapore
-4. [Dengue clusters](http://outbreak.sgcharts.com/data): Dengue cluster records in Singapore used for this project were from 2015 to 2018
+4. [Dengue clusters](http://outbreak.sgcharts.com/data): Dengue cluster records in Singapore used for this project from 2015 to 2018
 5. [Master Plan Subzone Boundary (No Sea)](https://data.gov.sg/dataset/master-plan-2014-subzone-boundary-no-sea?resource_id=c30bfcc0-7e23-4959-b4d9-c5da5e00af54): A shapefile that contained the geographic information of all 323 subzones in Singapore
 
 [Return to top](#Table-of-Contents)
@@ -43,7 +43,7 @@ The forecasting algorithm used processed data on dengue clusters with subzones d
 
 The model will be used to predict on a weekly basis: starting with the first week of the test set, the model predicts the number of dengue cases for each subzone, then when it came to the second week, the true value of the past week should be already known and it will be used to predict the number of cases for the second week, and so on until the entire test set has been predicted. To evaluate the accuracy of the model, we selected the first and second weeks of test set and compared the predicted values to the true values for geographic analysis.
 
-<img src="images/Geospatial Prediction Methods.png" width="800"/>
+<img src="images/Geospatial Prediction Methods.png" width="600"/>
 
 The training results demonstrated an average SMAPE of 33.2% for the first week prediction, which was lower than the baseline. Upon comparing the geographic distribution of our predictions with the true values, we noticed that our predictions identified the same hotspot zones as the true values. The second week prediction had similar results, indicating the stability of the model.
 
@@ -52,7 +52,7 @@ The training results demonstrated an average SMAPE of 33.2% for the first week p
 ### Cost-Benefit Analysis
 - **Targeted intervention**: With 323 subzones in Singapore, assume the cost of intervention in each subzone would be 10,000 SGD. By predicting the number of dengue cases at the subzone level, it becomes possible to identify the top 10 subzones that are at the highest risk of dengue transmission for every week. Targeting these subzones with intervention measures can prevent the majority of dengue cases and reduce the overall cost of intervention to 100,000 SGD (10 subzones x 10,000 SGD per subzone), instead of 3,230,000 SGD (323 subzones x 10,000 SGD per subzone) if intervention measures were applied uniformly.
 
-- **Resource allocation**: Each subzone of Singapore has an average population of 15,900 (5 Million/315 residential subzones), and sometimes it can have limited medical personnel and supplies to combat dengue (e.g. during COVID period). By predicting the number of dengue cases at the subzone level, it becomes possible to allocate resources efficiently. If a particular subzone is predicted to have a high number of dengue cases, resources such as medical personnel, mosquito control measures, and other supplies can be allocated to that subzone. For example, if a subzone is predicted to have 50 cases, it may require 10 medical personnel to treat patients, 15 mosquito control workers to eliminate breeding sites, and additional supplies such as mosquito nets and repellent. However, if another subzone is predicted to have only 5 cases, it may require much fewer resources to combat the disease.
+- **Resource allocation**: Each subzone in Singapore has an average population of 15,900 (calculated by dividing 5 million by 315 residential subzones), and limited medical personnel and supplies can be a challenge in combating dengue, particularly during periods of strain on healthcare resources, such as the COVID-19 pandemic. By predicting the number of dengue cases at the subzone level, it becomes possible to allocate resources efficiently. If a particular subzone is predicted to have a high number of dengue cases, resources such as medical personnel, mosquito control measures, and other supplies can be allocated to that subzone. For instance, if a subzone is predicted to have 50 cases, it may require 10 medical personnel to treat patients, 15 mosquito control workers to eliminate breeding sites, and additional supplies such as mosquito nets and repellent. In contrast, if another subzone is predicted to have only 5 cases, it may require significantly fewer resources to combat the disease.
     
 [Return to top](#Table-of-Contents)
 
