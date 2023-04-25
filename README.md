@@ -45,7 +45,7 @@ The model will be used to predict on a weekly basis: starting with the first wee
 
 <img src="images/Geospatial Prediction Methods.png" width="600"/>
 
-The training results demonstrated an average SMAPE of 33.2% for the first week prediction, which was lower than the baseline. Upon comparing the geographic distribution of our predictions with the true values, we noticed that our predictions identified the same hotspot zones as the true values. The second week prediction had similar results, indicating the stability of the model.
+The training results demonstrated an average SMAPE of 33.2% for the first week prediction, which was lower than the baseline. Upon comparing the geographic distribution of our predictions with the true values, we noticed that our predictions identified the same hotspot zones as the true values. The second week prediction had similar results, indicating the stability of the model. However, based on the SMAPE of the validation set during training, we observed that certain weeks had a significantly large prediction error. This indicates that the model with autoregression alone may not be sufficient for long-term predictions. Additional data with more features that can better describe the target variable are required to improve the model's accuracy and reduce its variance.
 
 <img src="images/Geospatial Prediction Results.png" width="1000"/>
 
