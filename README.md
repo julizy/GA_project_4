@@ -5,7 +5,7 @@
 - [Problem Statement](#Problem-Statement) 
 - [Dataset](#Dataset)
 - [Executive Summary](#Executive-Summary)
-- [Conclusion and Recommendation](#Conclusion-and-Recommendation)  
+- [Conclusions and Recommendations](#Conclusions-and-Recommendations)  
 - [Project Planning Documentation](#Project-Planning-Documentation)  
 
 ## Background
@@ -92,3 +92,4 @@ By predicting the number of dengue cases at a subzone level, we are able to put 
 | Project Report | Juliana, Hong Xiang, Song Kai | 28 April 2022 |
 | Presentation Slides | Juliana, Hong Xiang, Song Kai | 28 April 2022 |
 
+[Return to top](#Table-of-Contents)
