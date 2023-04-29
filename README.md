@@ -31,6 +31,14 @@ We curated the dataset from:
 
 ### Exploratory Data Analysis (EDA)
 
+We first compared the weekly trend of google search terms against the number of dengue cases from 2015 to 2018, to identify potential predictors we can use in our model. In particular, we found that the google search trend for "dengue fever" followed quite closely to the dengue cases trend, with similar peaks occurring in 2014 and 2016. Hence, the search for "dengue fever" could be a strong predictor for number of dengues cases.
+
+<img src="images/dengue_fever_trend.png" width="600"/>
+
+We also compared the weather data trend such as rainfall and wind speed against the number of dengue cases, as mosquitos require stagnant water to breed. However, we found that the weather data did not seem to correlate with the number of dengue cases. Thus, we expect that weather data may not be useful in predicting number of dengue cases.
+
+<img src="images/weather_data_trend.png" width="600"/>
+
 To visualize the spatial distribution of infecting locations in Singapore from 2015 to 2018, we plotted all infecting locations involved in the dengue clusters during this period and mapped them to the corresponding subzones. The resulting map is color-coded with the cumulative case numbers, revealing that the top 10 infecting subzones were mainly concentrated in the east, north-east, north, and central regions.
 
 <img src="images/EDA_spatial distribution.png" width="1000"/>
@@ -38,6 +46,10 @@ To visualize the spatial distribution of infecting locations in Singapore from 2
 To investigate the potential correlation between weather patterns and dengue cases, we mapped the average weekly total rainfall, weekly mean temperature and weekly mean wind speed with the spatial distribution of infecting locations. However, due to the unavailability of data for all subzones, it is challenging to establish a clear relationship between weather patterns and dengue cases in each subzone.
 
 ### Modeling
+
+XGBoost regressor was selected as the model used to predict overall weekly number of dengue cases over time. We split our data such that 2014-2017 data was used for training, while 2018 data was used for validation of our model performance. The Root Mean Squared Error (RMSE) was calculated for validation set and used to compare against the baseline models (annual mean/median).
+
+Our initial model returned a RMSE of 40.19, with the google search of "dengue fever" showing a strong impact in the prediction. However, when retraining our model with lagged features, we found that the number of dengue cases in the previous week became the dominant feature, with RMSE improving to 15.24. This suggests a strong autoregression present in the data, which we took tried to account for in our spatial level modeling.
 
 The forecasting algorithm used processed data on dengue clusters with subzones during the geospatial EDA phase. LightGBM regressor was selected as the prediction model, and the data were split into training (80%) and testing (20%) sets for out-of-sample validation based on the time period. Within the training set, 30% of the data was further partitioned as the validation set during training. The Symmetric Mean Absolute Percentage Error (SMAPE) was calculated and compared for the prediction and baseline (lag1) using the validation set during training.
 
