@@ -32,7 +32,7 @@ We curated the dataset from:
 
 ### Exploratory Data Analysis (EDA)
 
-We first compared the weekly trend of google search terms against the number of dengue cases from 2015 to 2018, to identify potential predictors we can use in our model. In particular, we found that the google search trend for "dengue fever" followed quite closely to the dengue cases trend, with similar peaks occurring in 2014 and 2016. Hence, the search for "dengue fever" could be a strong predictor for number of dengues cases.
+We first compared the weekly trend of google search terms against the number of dengue cases from 2014 to 2018, to identify potential predictors we can use in our model. In particular, we found that the google search trend for "dengue fever" followed quite closely to the dengue cases trend, with similar peaks occurring in 2014 and 2016. Hence, the search for "dengue fever" could be a strong predictor for number of dengues cases.
 
 <img src="images/dengue_fever_trend.png" width="600"/>
 
