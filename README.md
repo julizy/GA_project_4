@@ -54,7 +54,7 @@ XGBoost regressor was selected as the model used to predict overall weekly numbe
 
 Our initial model returned a RMSE of 45.58, with the google search of "dengue fever" showing a strong impact in the prediction. However, when retraining our model with lagged features, we found that the number of dengue cases in the previous week became the dominant feature, with RMSE improving to 16.66. This suggests a strong autoregression present in the data, which we took tried to account for in our spatial level modeling.
 
-<img src="images/model_result.png" width="600"/>
+<img src="images/model_result.png" width="1000"/>
 
 The forecasting algorithm used processed data on dengue clusters with subzones during the geospatial EDA phase. LightGBM regressor was selected as the prediction model, and the data were split into training (80%) and testing (20%) sets for out-of-sample validation based on the time period. Within the training set, 30% of the data was further partitioned as the validation set during training. The Symmetric Mean Absolute Percentage Error (SMAPE) was calculated and compared for the prediction and baseline (lag1) using the validation set during training.
 
