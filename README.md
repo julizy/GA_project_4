@@ -49,7 +49,11 @@ To investigate the potential correlation between weather patterns and dengue cas
 
 XGBoost regressor was selected as the model used to predict overall weekly number of dengue cases over time. We split our data such that 2014-2017 data was used for training, while 2018 data was used for validation of our model performance. The Root Mean Squared Error (RMSE) was calculated for validation set and used to compare against the baseline models (annual mean/median).
 
+<img src="images/temporal_model.png" width="600"/>
+
 Our initial model returned a RMSE of 40.19, with the google search of "dengue fever" showing a strong impact in the prediction. However, when retraining our model with lagged features, we found that the number of dengue cases in the previous week became the dominant feature, with RMSE improving to 15.24. This suggests a strong autoregression present in the data, which we took tried to account for in our spatial level modeling.
+
+<img src="images/model_result.png" width="600"/>
 
 The forecasting algorithm used processed data on dengue clusters with subzones during the geospatial EDA phase. LightGBM regressor was selected as the prediction model, and the data were split into training (80%) and testing (20%) sets for out-of-sample validation based on the time period. Within the training set, 30% of the data was further partitioned as the validation set during training. The Symmetric Mean Absolute Percentage Error (SMAPE) was calculated and compared for the prediction and baseline (lag1) using the validation set during training.
 
