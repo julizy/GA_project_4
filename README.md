@@ -9,7 +9,7 @@
 - [Project Planning Documentation](#Project-Planning-Documentation)  
 
 ## Background
-
+Dengue fever is a viral infection that spreads from the Aedes mosquito to people and is commonly found in tropical countries, including Singapore. The average lifespan of an Aedes mosquito is approximately 2 weeks and it takes approximately 8-10 days for an egg to evolve into an adult. A mosquito can lay eggs about three times in its lifetime, and about 100 eggs are produced each time. This increases the risk of dengue transmission due to the short time required for mosquitoes to breed and populate. Most people recover from dengue fever within a week or so. However in some cases, symptoms worsen and can become life-threatening. Since there is no specific treatment for dengue/severe dengue, therefore it is imperative to have preventive measures in place. These include vector control, detection/monitoring systems and medical care.
 
 [Return to top](#Table-of-Contents)  
 
@@ -52,7 +52,7 @@ XGBoost regressor was selected as the model used to predict overall weekly numbe
 
 <img src="images/temporal_model.png" width="600"/>
 
-Our initial model returned a RMSE of 45.58, with the google search of "dengue fever" showing a strong impact in the prediction. However, when retraining our model with lagged features, we found that the number of dengue cases in the previous week became the dominant feature, with RMSE improving to 16.66. This suggests a strong autoregression present in the data, which we took tried to account for in our spatial level modeling.
+Our initial model returned a RMSE of 59.93, with the google search of "dengue fever" showing a strong impact in the prediction. However, when retraining our model with lagged features, we found that the number of dengue cases in the previous week became the dominant feature, with RMSE improving to 16.66. This suggests a strong autoregression present in the data, which we took tried to account for in our spatial level modeling.
 
 <img src="images/model_result.png" width="600"/>
 
